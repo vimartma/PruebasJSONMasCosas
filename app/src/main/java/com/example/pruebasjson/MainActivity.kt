@@ -1,7 +1,9 @@
 package com.example.pruebasjson
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,7 @@ import java.io.IOException
 import java.nio.charset.Charset
 import java.util.concurrent.CyclicBarrier
 
+
 var jsonTotal=""
 val barrier =  CyclicBarrier(2);
 
@@ -25,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getCircuitosCall()
+        var button : Button =findViewById<Button>(R.id.button1)
+        button.setOnClickListener {
+            val intent = Intent(this, Actividad2::class.java)
+            startActivity(intent)}
         barrier.await()
         // Instance of users list using the data model class.
         val circuitos: ArrayList<Circuito_Modelo> = ArrayList()
